@@ -1,0 +1,63 @@
+.form_container {
+    position: absolute;
+    background-color: rgb(253, 251, 251);
+    height: 40rem;
+    width: 40rem;
+    top: -5rem;
+    left : 25rem;
+}
+
+.cross{
+    position: absolute;
+    right: 3rem;
+    top : 2rem;
+}
+.input_container {
+    width: 58%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+}
+
+.input_field {
+    height: 2rem;
+    width : 15rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    border : 1px solid red;
+    height : 30rem;
+    justify-content: center;
+    align-items: center;
+    gap : 2rem;
+}
+
+.button {
+    padding: 0.8rem;
+    background-color: white;
+    border-color: lightgray;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    color: white;
+    background-color:   rgb(89, 157, 199);
+    transition: 0.3s;
+    width: 6rem;
+}
+.button:hover {
+    transition: 0.3s;
+    background-color: white;
+    color: lightskyblue;
+}
+
+.radio_container {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap : 3rem;
+}

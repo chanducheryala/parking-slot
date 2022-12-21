@@ -3,21 +3,24 @@ import styles from './styles.module.css'
 import {useDispatch} from 'react-redux'
 import { addUser } from '../../../reducers/usersSlice'
 import { ReactComponent as Close } from '../../../assets/close.svg'
+import { changeAvailableSlots } from '../../../reducers/usersSlice'
 
 export const Form = ({setFormPopUp}) => {
-   const [user, setUser] = useState({ name : " ", phoneNumber : 0 , parkingType : "Bike"})
+   const [user, setUser] = useState({ name : " ", phoneNumber : 0 , parkingType : ""})
    const dispatch = useDispatch();
 
     const changeHandler = (e) => {
         setUser({...user, [e.target.name] : e.target.value })
+        
     }
 
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(addUser(user));
-
         console.log(user);
-        setUser({...user, name : " ", phoneNumber : 0 , parkingType : "Bike" });
+        dispatch(changeAvailableSlots(user.parkingType));
+        setUser({...user, name : " ", phoneNumber : 0 , parkingType : "bike" });
+        setFormPopUp(false)
     }
   return (
     <div className={`${styles["form_container"]}`}>     
@@ -39,11 +42,11 @@ export const Form = ({setFormPopUp}) => {
          <div className={`${styles['radio_container']}`}>
            <div>
               <label>Bike</label>
-                <input type = "radio" value = "Bike" name = "parkingType" onChange={changeHandler}/>
+                <input type = "radio" value = "bike" name = "parkingType" onChange={changeHandler}/>
            </div>
            <div>
            <label>Car</label>
-            <input type = "radio" value = "Car" name = "parkingType" onChange={changeHandler} />
+            <input type = "radio" value = "car" name = "parkingType" onChange={changeHandler} />
            </div>
          </div>
          <div>

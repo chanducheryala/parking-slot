@@ -9,15 +9,22 @@
     gap : 3rem;
     margin : 10rem;
     text-align: center;
+    margin-left: 15% ;
   }
   
+  .header {
+    position: absolute;
+    top :-6rem;
+    left : 39rem
+  }
   .button_container {
     display: flex;
-    left : -8rem;
+    left : -7rem;
     gap : 2rem;
     position: absolute;
     margin-left: 40rem;
     top : 28rem;
+    margin-left: 44.6% ;
   }
   
   .button {
@@ -25,20 +32,17 @@
     background-color: white;
     border-color: lightgray;
     outline: none;
-    border: 1px solid lightgray;
+    border: 1px solid rgb(197, 180, 180);
     border-radius: 0.5rem;
-    color: white;
-    background-color:   rgb(89, 157, 199);
+    color: rgb(237, 228, 228);
+    background-color: rgb(89, 157, 199);
     transition: 0.3s;
     width: 9rem;
     height: 3rem;
   }
   .button:hover {
     transition: 0.3s;
-    background-color: white;
-    color: lightskyblue;
+    background-color: rgb(220, 209, 209);
+    color: rgb(21, 23, 23);
   }
-  
-  
-  
   

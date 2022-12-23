@@ -36,9 +36,13 @@ export const usersSlice = createSlice ( {
 
         needToChangeDetails : (state, action) => {
             state.editDetails = action.payload;
+        },
+        deleteSlot : (state, action) => {
+            const userId = action.payload;
+            state.usersDetails = state.usersDetails.filter((_user, index)  => index !== userId);
         }
     }
 })
 
-export const { addUser, changeParkingSlots , changeAvailableSlots, needToChangeDetails} = usersSlice.actions;
+export const { addUser, changeParkingSlots , changeAvailableSlots, needToChangeDetails,deleteSlot} = usersSlice.actions;
 export default usersSlice.reducer

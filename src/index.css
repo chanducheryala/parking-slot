@@ -3,5 +3,6 @@ body {
   font-family: 'Segoe UI';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-image: linear-gradient(#DAE2F8, #bda4a4); 
+  height: 79vh;
 }

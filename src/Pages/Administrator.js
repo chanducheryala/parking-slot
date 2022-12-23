@@ -2,21 +2,26 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeParkingSlots } from "../reducers/usersSlice";
 import { useNavigate } from "react-router-dom";
+import "./Administrator.css";
+import { deleteSlot } from "../reducers/usersSlice";
 
 export const Administrator = () => {
   const userDetails = useSelector((state) => state.usersDetails.usersDetails);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   console.log(userDetails);
 
   const [changeSlots, setChangeSlots] = useState({ bike: 0, car: 0 });
   const [parkingType, setParkingType] = useState("bike");
   return (
-    <div>
-      <div>
-        <div>
+    <div className="admin_container">
+      <div className="adminlabel">
+        <h1>Administrator Page</h1>
+      </div>
+      <div className="btn-radio">
+        <div className="r-btn">
           <label>Bike</label>
           <input
             type="radio"
@@ -25,7 +30,7 @@ export const Administrator = () => {
             onChange={() => setParkingType("bike")}
           />
         </div>
-        <div>
+        <div className="r-btn">
           <label>Car</label>
           <input
             type="radio"
@@ -35,16 +40,8 @@ export const Administrator = () => {
           />
         </div>
       </div>
-      <form
-        onSubmit={(e) => (
-          e.preventDefault(),
-          dispatch(changeParkingSlots(changeSlots)),
-          console.log(changeSlots),
-          setParkingType({ bike: 0, car: 0 }),
-          navigate("/")
-        )}
-      >
-        <div>
+      <div className="form">
+        <div className="input">
           <label>Bike</label>
           <input
             type="number"
@@ -54,7 +51,7 @@ export const Administrator = () => {
             }
           />
         </div>
-        <div>
+        <div className="input">
           <label>Car</label>
           <input
             type="number"
@@ -64,19 +61,27 @@ export const Administrator = () => {
             }
           />
         </div>
-        <div>
-          <button>Save</button>
+        <div className="input">
+          <button
+            class="btn btn-primary"
+            onClick={() => (
+              dispatch(changeParkingSlots(changeSlots)),
+              setParkingType({ bike: 0, car: 0 })
+            )}
+          >
+            Save
+          </button>
         </div>
-      </form>
+      </div>
 
-      <div>
+      <div className="details">
         {userDetails?.map((user, index) => {
           return (
             parkingType === user.parkingType && (
-              <div key={index}>
-                <h3>{user.name}</h3>
-                <h3>{user.phoneNumber}</h3>
-                <button>Delete</button>
+              <div key={index} className="table">
+                <h5>{user.name}</h5>
+                <h5>{user.phoneNumber}</h5>
+                <button className="btn btn-danger" onClick = { () =>  dispatch(deleteSlot(index) )}>Delete</button>
               </div>
             )
           );

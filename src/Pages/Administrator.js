@@ -66,7 +66,8 @@ export const Administrator = () => {
             class="btn btn-primary"
             onClick={() => (
               dispatch(changeParkingSlots(changeSlots)),
-              setParkingType({ bike: 0, car: 0 })
+              setParkingType({ bike: 0, car: 0 }),
+              navigate("/")
             )}
           >
             Save
